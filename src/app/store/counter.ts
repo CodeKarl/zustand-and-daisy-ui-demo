@@ -1,4 +1,3 @@
-import { init } from 'next/dist/compiled/webpack/webpack'
 import { StateCreator } from 'zustand'
 
 export interface CounterSlice {
@@ -6,7 +5,6 @@ export interface CounterSlice {
   increaseCount: () => void
   decreaseCount: () => void
   resetCount: () => void
-  test: () => void
 }
 
 export const initialState: CounterSlice = {
@@ -14,7 +12,6 @@ export const initialState: CounterSlice = {
   increaseCount: () => { },
   decreaseCount: () => { },
   resetCount: () => { },
-  test: () => { }
 }
 
 export const createCounterSlice: StateCreator<

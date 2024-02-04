@@ -8,10 +8,7 @@ function Counter() {
   const { decreaseCount, increaseCount, resetCount, count } = useStore(state => state)
 
   const hasDisabledReset = count === 0
-  const tags = [
-    { name: 'Zustand', color: 'primary' },
-    { name: 'DaisyUI', color: 'secondary' },
-  ]
+  const tags = ['Zustand', 'DaisyUI']
 
   return (
     <Card tags={tags}>
