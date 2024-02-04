@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Counter from "./components/Counter";
+import DataFetchingWithZustand from "./components/DataFetchingWithZustand";
 
 export default function Home() {
   return (
@@ -29,7 +30,10 @@ export default function Home() {
         </div>
       </div>
 
-      <Counter />
+      <div className="flex flex-col gap-8">
+        <Counter />
+        <DataFetchingWithZustand />
+      </div>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
