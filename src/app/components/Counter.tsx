@@ -5,7 +5,7 @@ import { useStore } from '../store'
 import Card from './Card'
 
 function Counter() {
-  const { decreaseCount, increaseCount, resetCount, count } = useStore(state => state)
+  const { decreaseCount, increaseCount, resetCount, count } = useStore(state => state.counter)
 
   const hasDisabledReset = count === 0
   const tags = ['Zustand', 'DaisyUI']

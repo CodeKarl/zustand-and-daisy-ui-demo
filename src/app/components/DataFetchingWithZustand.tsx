@@ -5,7 +5,7 @@ import Card from './Card'
 import { useStore } from '../store';
 
 function DataFetchingWithZustand() {
-  const { data, isLoading, error, fetchData, clearData } = useStore(state => state)
+  const { data, isLoading, error, fetchData, clearData } = useStore(state => state.dataFetch)
 
   const tags = ['Zustand', 'DaisyUI']
 
@@ -29,8 +29,13 @@ function DataFetchingWithZustand() {
         )}
       </div>
       <div className='flex gap-4 justify-center'>
-        <button onClick={fetchData} className='btn btn-primary'>{data ? 'Re-fetch Data' : 'Fetch Data'}</button>
-        <button onClick={clearData} className='btn btn-secondary' disabled={!data}>Clear Data</button>
+        <button onClick={fetchData} className='btn btn-primary' disabled={isLoading}>
+          {isLoading && <span className="loading loading-spinner"></span>}
+          {isLoading ? 'Fetching Data' : (data ? 'Re-fetch Data' : 'Fetch Data')}
+        </button>
+        <button onClick={clearData} className='btn btn-secondary' disabled={!data || isLoading}>
+          {isLoading ? <span className="loading loading-spinner"></span> : 'Clear Data'}
+        </button>
       </div>
     </Card>
   )
